@@ -1,0 +1,74 @@
+### StudentReg API — Test file (VS Code REST Client)
+### Cài extension: humao.rest-client, rồi click "Send Request"
+
+@base = http://localhost:3000
+
+### ── STUDENT ─────────────────────────────────────────────────
+
+### 1. Lấy tất cả sinh viên
+GET {{base}}/api/students
+
+###
+
+### 2. Lấy 1 sinh viên theo ID
+GET {{base}}/api/students/1006
+
+###
+
+### 3. Thêm sinh viên mới
+POST {{base}}/api/students
+Content-Type: application/json
+
+{
+  "SID": "2000",
+  "SNAME": "Nguyen Van A",
+  "EMAIL": "nva@email.com",
+  "Tutor_Id": "1000"
+}
+
+###
+
+### 4. Cập nhật sinh viên
+PUT {{base}}/api/students/2000
+Content-Type: application/json
+
+{
+  "EMAIL": "updated@email.com",
+  "Tutor_Id": "1005"
+}
+
+###
+
+### 5. Xoá sinh viên
+DELETE {{base}}/api/students/2000
+
+###
+
+### ── ENROLLMENT ────────────────────────────────────────────────
+
+### 6. Lấy tất cả đăng kí
+GET {{base}}/api/enrollments
+
+###
+
+### 7. Đăng kí môn học
+POST {{base}}/api/enrollments
+Content-Type: application/json
+
+{
+  "SID": "1000",
+  "MID": "103",
+  "ACAD_YEAR": "2024-2025"
+}
+
+###
+
+### 8. Huỷ đăng kí
+DELETE {{base}}/api/enrollments
+Content-Type: application/json
+
+{
+  "SID": "1000",
+  "MID": "103",
+  "ACAD_YEAR": "2024-2025"
+}
